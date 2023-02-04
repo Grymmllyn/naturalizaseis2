@@ -1,10 +1,3 @@
-<html>
-
-<head>
-<meta http-equiv="Content-Language" content="en-us">
-<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
-<title>New Page 2</title>
-npm i -D pagecrypt
 import { encryptHTML } from 'pagecrypt/core'
 
 const inputHTML = `
@@ -26,17 +19,9 @@ const encryptedHTML = await encryptHTML(inputHTML, 'password')
 // Optional: You can customize the number of password iterations if you want increased security.
 const iterations = 3e6 // Same as 3_000_000
 const customIterations = await encryptHTML(inputHTML, 'password', iterations)
+
 import { generatePassword, encryptHTML } from 'pagecrypt/core'
 
 // Generate a random password without any external dependencies
 const password = generatePassword(64)
 const encryptedHTML = await encryptHTML(inputHTML, password)
-</head>
-
-<body>
-
-<p>hi</p>
-
-</body>
-
-</html>
