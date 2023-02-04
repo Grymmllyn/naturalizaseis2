@@ -1,29 +1,17 @@
 npm i -D pagecrypt
 
-import { encryptHTML } from 'pagecrypt/core'
+import { encrypt } from 'pagecrypt'
 
-const inputHTML = `
-    <!DOCTYPE html>
-    <html lang="en">
-        <head>
-            <meta charset="UTF-8">
-        </head>
-        <body>
-            Secret
-        </body>
-    </html>
-`
+// Encrypt a HTML file and write to the filesystem
+await encrypt('index.html', 'encrypted.html', 'password')
 
-// Encrypt a HTML string and return an encrypted HTML string.
-// Write it to a file or send as an HTTPS response.
-const encryptedHTML = await encryptHTML(inputHTML, 'password')
-
-// Optional: You can customize the number of password iterations if you want increased security.
+// You can optionally customize the number of password iterations
 const iterations = 3e6 // Same as 3_000_000
-const customIterations = await encryptHTML(inputHTML, 'password', iterations)
+await encrypt('index.html', 'encrypted.html', 'password', iterations)
 
-import { generatePassword, encryptHTML } from 'pagecrypt/core'
+import { generatePassword, encryptHTML } from 'pagecrypt'
 
-// Generate a random password without any external dependencies
-const password = generatePassword(64)
-const encryptedHTML = await encryptHTML(inputHTML, password)
+const password = generatePassword(48)
+const iterations = 3e6 // Same as 3_000_000
+
+const encrypted = await encryptHTML(inputHTML, password, iterations)
