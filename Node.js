@@ -1,3 +1,5 @@
+npm i -D pagecrypt
+
 import { encryptHTML } from 'pagecrypt/core'
 
 const inputHTML = `
